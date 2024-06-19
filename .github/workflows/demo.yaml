@@ -13,4 +13,9 @@ jobs:
       - name: Create SBOM with CycloneDX
         uses: CycloneDX/gh-node-module-generatebom@v1
         with: 
-          output: './test.app.bom.xml'
+          output: './software_bill.xml'
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sbom
+          path: ./software_bill.xml
